@@ -20,7 +20,7 @@ class GroupsController extends AppController
      */
     public function index()
     {
-        $groups = $this->paginate($this->Groups);
+        $groups = $this->Groups->find('all');
 
         $this->set(compact('groups'));
     }

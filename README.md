@@ -4,13 +4,14 @@ Created using [CakePHP](https://cakephp.org) framework.
 
 ## Project Timeline:
 Start: 17-10-18
+
 End: ???
 
 ## Reminders
 
 ### Database
 
-To create a database via Postgres, change authentication type to 'md5' from 'peer' for all users:
+To create a database via Postgres, change authentication type to **md5** from **peer** for all users:
 
 ```bash
 /etc/postgresql/9.5/main/pg_hba.conf
@@ -18,19 +19,19 @@ To create a database via Postgres, change authentication type to 'md5' from 'pee
 local all all md5
 ```
 
-Credits to [depa](https://stackoverflow.com/users/1512956/depa): [StackOverflow solution](https://stackoverflow.com/a/18664239/6353682)
+[StackOverflow solution](https://stackoverflow.com/a/18664239/6353682) credits to [depa](https://stackoverflow.com/users/1512956/depa)
 
 #### Create Database
 
 User:
 
-```bash
+```sql
 CREATE USER phpuser WITH ENCRYPTED PASSWORD 'phpuser';
 ```
 
 Database:
 
-```bash
+```sql
 CREATE DATABASE phpuser WITH OWNER phpuser;
 ```
 

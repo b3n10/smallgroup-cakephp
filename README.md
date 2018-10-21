@@ -1,5 +1,7 @@
 # SmallGroup Website
 
+Moto: Walking with God is not intended to be alone. SmallGroup is here to help and maintain your walk with other believers.
+
 Created using [CakePHP](https://cakephp.org) framework.
 
 ## Project Timeline:

@@ -58,6 +58,18 @@ class GroupsTable extends Table
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 
+        $validator
+            ->scalar('meeting_day')
+            ->maxLength('meeting_day', 255)
+            ->requirePresence('meeting_day', 'create')
+            ->notEmpty('meeting_day');
+
+        $validator
+            ->scalar('meeting_place')
+            ->maxLength('meeting_place', 255)
+            ->requirePresence('meeting_place', 'create')
+            ->notEmpty('meeting_place');
+
         return $validator;
     }
 }

@@ -23,14 +23,26 @@
     <!-- Bootstrap CSS -->
     <?= $this->Html->css('bootstrap.min.css') ?>
 
+    <!-- freeawesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+
+    <!-- page css here if any -->
+    <?= $this->fetch('pagecss') ?>
+
     <title><?= $this->fetch('title') ?></title>
   </head>
   <body>
+    <?= $this->element('nav') ?>
+
     <?= $this->Flash->render() ?>
     <div class="container">
         <?= $this->fetch('content') ?>
     </div>
 
-    <?= $this->Html->script('bootstrap.bundle.min.js') ?>
+    <?= $this->Html->script('jquery-3.3.1.slim.min.js') ?>
+    <?= $this->Html->script('popper.min.js') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
+
   </body>
 </html>

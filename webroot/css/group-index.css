@@ -1,0 +1,15 @@
+a:hover .card-body,
+a:hover .list-group-item {
+	/*background: #19446966;*/
+	color: #000; 
+	text-decoration: none;
+}
+
+a.no-decor {
+	color: #000; 
+	text-decoration: none;
+}
+
+.w-span {
+	width: 73% !important;
+}

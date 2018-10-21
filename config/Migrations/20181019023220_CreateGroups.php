@@ -1,5 +1,4 @@
 <?php
-
 use Migrations\AbstractMigration;
 
 class CreateGroups extends AbstractMigration
@@ -17,6 +16,16 @@ class CreateGroups extends AbstractMigration
         $table->addColumn('name', 'string', [
             'default' => null,
             'limit' => 20,
+            'null' => false,
+        ]);
+        $table->addColumn('meeting_day', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
+        $table->addColumn('meeting_place', 'string', [
+            'default' => null,
+            'limit' => 255,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

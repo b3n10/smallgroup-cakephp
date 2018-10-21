@@ -16,6 +16,8 @@
         <legend><?= __('Add Group') ?></legend>
         <?php
             echo $this->Form->control('name');
+            echo $this->Form->control('meeting_day');
+            echo $this->Form->control('meeting_place');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

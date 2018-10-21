@@ -21,6 +21,14 @@
             <td><?= h($group->name) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Meeting Day') ?></th>
+            <td><?= h($group->meeting_day) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Meeting Place') ?></th>
+            <td><?= h($group->meeting_place) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($group->id) ?></td>
         </tr>

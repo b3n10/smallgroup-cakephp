@@ -52,5 +52,5 @@ $ phpcs --config-set default_standard CakePHP
     - gallery of smallgroup pictures
     - testimonials from current members
     - login form
-2 Accessible Homepage without login
+~~2 Accessible Homepage without login~~
 3 Add user to a group (GroupList Table: group_id, user_id)

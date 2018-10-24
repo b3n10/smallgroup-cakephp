@@ -51,5 +51,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     $routes->connect('/groups', ['controller' => 'Groups', 'action' => 'index']);
 
+    $routes->connect('/profile', ['controller' => 'Users', 'action' => 'profileIndex']);
+
     $routes->fallbacks(DashedRoute::class);
 });

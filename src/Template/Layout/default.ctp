@@ -12,6 +12,9 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
+
+$this->assign('main_title', 'SmallGroup')
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,7 +29,7 @@
     <!-- page css here if any -->
     <?= $this->fetch('pagecss') ?>
 
-    <title><?= $this->fetch('title') ?></title>
+    <title><?= $this->fetch('main_title') . ' | ' . $this->fetch('page_title') ?></title>
   </head>
   <body>
     <?= $this->element('nav') ?>

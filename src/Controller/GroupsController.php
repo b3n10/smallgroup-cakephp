@@ -12,6 +12,16 @@ use App\Controller\AppController;
  */
 class GroupsController extends AppController
 {
+    /**
+     * Initialization hook method.
+     *
+     * @return void
+     */
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->deny(['index']);
+    }
 
     /**
      * Index method

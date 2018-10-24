@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Group[]|\Cake\Collection\CollectionInterface $groups
  */
+$this->assign('page_title', 'All Groups');
 
 $this->start('pagecss');
 echo $this->Html->css('group-index.css');

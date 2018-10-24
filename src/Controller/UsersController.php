@@ -21,7 +21,19 @@ class UsersController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['logout']);
+        $this->Auth->deny(['index']);
+    }
+
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|void
+     */
+    public function index()
+    {
+        $users = $this->paginate($this->Users);
+
+        $this->set(compact('users'));
     }
 
     /**
@@ -52,20 +64,9 @@ class UsersController extends AppController
     public function logout()
     {
         $this->Flash->success('You are now logged out!');
+        $this->Auth->logout();
 
-        return $this->redirect($this->Auth->logout());
-    }
-
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-    public function index()
-    {
-        $users = $this->paginate($this->Users);
-
-        $this->set(compact('users'));
+        return $this->redirect('/');
     }
 
     /**
@@ -146,5 +147,16 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Show current user's profile
+     *
+     * @return void
+     */
+    public function profileIndex()
+    {
+        $user = $this->Auth->user();
+        $this->set(compact('user'));
     }
 }

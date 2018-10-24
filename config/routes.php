@@ -47,6 +47,8 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
+    $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
+
     $routes->connect('/groups', ['controller' => 'Groups', 'action' => 'index']);
 
     $routes->fallbacks(DashedRoute::class);

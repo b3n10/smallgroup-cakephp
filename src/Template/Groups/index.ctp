@@ -6,9 +6,16 @@
 
 $this->start('pagecss');
 echo $this->Html->css('group-index.css');
-$this->end();
-
 ?>
+
+<!-- freeawesome css -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+
+<?php
+$this->end();
+?>
+
 <?php if (!$groups->count()): ?>
 <div class="alert alert-primary mt-5" role="alert">
   <h4 class="alert-heading">No groups yet!</h4>

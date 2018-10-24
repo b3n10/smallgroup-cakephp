@@ -45,3 +45,12 @@ Replace PEAR default coding standard to CakePHP:
 $ phpcs --config-set installed_paths /path/to/your/app/vendor/cakephp/cakephp-codesniffer
 $ phpcs --config-set default_standard CakePHP
 ```
+
+## TODO
+
+1 Homepage with:
+    - gallery of smallgroup pictures
+    - testimonials from current members
+    - login form
+2 Accessible Homepage without login
+3 Add user to a group (GroupList Table: group_id, user_id)

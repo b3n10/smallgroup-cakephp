@@ -23,7 +23,7 @@ class CreateUsers extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('phone_number', 'integer', [
+        $table->addColumn('phone_number', 'string', [
             'default' => null,
             'limit' => 11,
             'null' => false,
@@ -38,6 +38,11 @@ class CreateUsers extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
+        $table->addColumn('user_type', 'integer', [
+            'default' => 0,
+            'limit' => 1,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
@@ -45,6 +50,18 @@ class CreateUsers extends AbstractMigration
         $table->addColumn('modified', 'datetime', [
             'default' => null,
             'null' => false,
+        ]);
+        $table->addIndex([
+            'phone_number',
+        ], [
+            'name' => 'UNIQUE_PHONE_NUMBER',
+            'unique' => true,
+        ]);
+        $table->addIndex([
+            'email_address',
+        ], [
+            'name' => 'UNIQUE_EMAIL_ADDRESS',
+            'unique' => true,
         ]);
         $table->create();
     }

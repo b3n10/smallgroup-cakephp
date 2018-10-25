@@ -39,11 +39,11 @@ $this->end();
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item py-1 mb-0 border-0">
                             <i class="fas fa-clock w-25 text-center"></i>
-                            <span class="d-inline-block text-justify w-span"><?= h($group->meeting_day) ?></span>
+                            <span class="d-inline-block text-justify w-span"><?= h($group->day . ', ' . $group->time->i18nFormat([\IntlDateFormatter::NONE, \IntlDateFormatter::SHORT])) ?></span>
                         </li>
                         <li class="list-group-item py-1 mb-0 border-0">
                             <i class="fas fa-map-marker-alt w-25 text-center"></i>
-                            <span class="d-inline-block text-justify w-span"><?= h($group->meeting_place) ?></span>
+                            <span class="d-inline-block text-justify w-span"><?= h($group->place) ?></span>
                         </li>
                         <li class="list-group-item py-1 mb-0 border-0">
                             <i class="fas fa-users w-25 text-center"></i>

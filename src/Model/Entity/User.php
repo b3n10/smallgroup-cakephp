@@ -10,9 +10,10 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $first_name
  * @property string $last_name
- * @property int $phone_number
+ * @property string $phone_number
  * @property string $email_address
  * @property string $password
+ * @property int $user_type
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */
@@ -34,6 +35,7 @@ class User extends Entity
         'phone_number' => true,
         'email_address' => true,
         'password' => true,
+        'user_type' => true,
         'created' => true,
         'modified' => true
     ];
@@ -47,6 +49,12 @@ class User extends Entity
         'password'
     ];
 
+    /**
+     * Hash user password
+     *
+     * @param string $password user unhashed password
+     * @return string
+     */
     protected function _setPassword($password)
     {
         if (strlen($password) > 0) {

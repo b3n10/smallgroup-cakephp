@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
+$this->assign('page_title', 'All Users')
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -21,6 +22,7 @@
                 <th scope="col"><?= $this->Paginator->sort('phone_number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email_address') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_type') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -32,9 +34,10 @@
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->first_name) ?></td>
                 <td><?= h($user->last_name) ?></td>
-                <td><?= $this->Number->format($user->phone_number) ?></td>
+                <td><?= h($user->phone_number) ?></td>
                 <td><?= h($user->email_address) ?></td>
                 <td><?= h($user->password) ?></td>
+                <td><?= $this->Number->format($user->user_type) ?></td>
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->modified) ?></td>
                 <td class="actions">

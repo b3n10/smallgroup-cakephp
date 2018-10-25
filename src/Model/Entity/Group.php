@@ -8,10 +8,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property string $meeting_day
- * @property string $meeting_place
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
+ * @property string $description
+ * @property string $day
+ * @property \Cake\I18n\FrozenTime $time
+ * @property string $place
  */
 class Group extends Entity
 {
@@ -27,9 +27,9 @@ class Group extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'meeting_day' => true,
-        'meeting_place' => true,
-        'created' => true,
-        'modified' => true
+        'description' => true,
+        'day' => true,
+        'time' => true,
+        'place' => true
     ];
 }

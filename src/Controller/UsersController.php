@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Controller\BaseController;
 
 /**
  * Users Controller
@@ -10,7 +10,7 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class UsersController extends AppController
+class UsersController extends BaseController
 {
 
     /**
@@ -31,6 +31,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->checkUserType();
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -92,6 +93,8 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->checkUserType();
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());

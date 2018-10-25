@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
+use App\Controller\BaseController;
 
 /**
  * Groups Controller
@@ -10,7 +10,7 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\Group[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class GroupsController extends AppController
+class GroupsController extends BaseController
 {
     /**
      * Initialization hook method.
@@ -58,8 +58,8 @@ class GroupsController extends AppController
      */
     public function add()
     {
+        $this->checkUserType();
         $group = $this->Groups->newEntity();
-        dd($this->request->getData());
 
         if ($this->request->is('post')) {
             $group = $this->Groups->patchEntity($group, $this->request->getData());

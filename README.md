@@ -48,9 +48,41 @@ $ phpcs --config-set default_standard CakePHP
 
 ## TODO
 
-1 Homepage with:
++ Homepage with:
     - gallery of smallgroup pictures
     - testimonials from current members
     - login form
-~~2 Accessible Homepage without login~~
-3 Add user to a group (GroupList Table: group_id, user_id)
+
+~~ + Accessible Homepage without login ~~
+
+~~ + Create UsersTable: ~~
+    - first_name
+    - last_name
+    - phone_number[11] **unique**
+    - email_address **unique**
+    - password
+    - user_type(0 - normal [default], 1 - admin, 2 - mod)
+
+~~ + Create GroupsTable: ~~
+    - name[20] **unique**
+    - description
+    - day
+    - time
+    - place
+
++ Create GroupList Table:
+    - group_id
+    - user_id
+
++ Add user to a group and show number of group members
+
++ Disable access to actions via URLs
+
++ Make email & phone unique
+
++ Fix Profile page
+
++ Normal users allow access to:
+    - homepage
+    - group index
+    - own & other profile

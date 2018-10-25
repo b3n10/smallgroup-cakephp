@@ -26,6 +26,8 @@
             echo $this->Form->control('phone_number');
             echo $this->Form->control('email_address');
             echo $this->Form->control('password');
+            if ($this->Session->read('Auth.User.user_type') === 2)
+                echo $this->Form->control('user_type', [ 'options' => [0 => 'Normal', 1 => 'Admin', 2 => 'Moderator'] ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

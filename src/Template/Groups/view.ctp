@@ -21,24 +21,24 @@
             <td><?= h($group->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Meeting Day') ?></th>
-            <td><?= h($group->meeting_day) ?></td>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= h($group->description) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Meeting Place') ?></th>
-            <td><?= h($group->meeting_place) ?></td>
+            <th scope="row"><?= __('Day') ?></th>
+            <td><?= h($group->day) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Place') ?></th>
+            <td><?= h($group->place) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($group->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($group->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($group->modified) ?></td>
+            <th scope="row"><?= __('Time') ?></th>
+            <td><?= h($group->time) ?></td>
         </tr>
     </table>
 </div>

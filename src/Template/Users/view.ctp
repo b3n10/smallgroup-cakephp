@@ -25,6 +25,10 @@
             <td><?= h($user->last_name) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Phone Number') ?></th>
+            <td><?= h($user->phone_number) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Email Address') ?></th>
             <td><?= h($user->email_address) ?></td>
         </tr>
@@ -37,8 +41,8 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Phone Number') ?></th>
-            <td><?= $this->Number->format($user->phone_number) ?></td>
+            <th scope="row"><?= __('User Type') ?></th>
+            <td><?= $this->Number->format($user->user_type) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

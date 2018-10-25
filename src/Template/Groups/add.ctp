@@ -16,8 +16,20 @@
         <legend><?= __('Add Group') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('meeting_day');
-            echo $this->Form->control('meeting_place');
+            echo $this->Form->control('description');
+            echo $this->Form->control('day', [
+                'options' => [
+                    'Monday' => 'Monday',
+                    'Tuesday' => 'Tuesday',
+                    'Wednesday' => 'Wednesday',
+                    'Thursday' => 'Thursday',
+                    'Friday' => 'Friday',
+                    'Saturday' => 'Saturday',
+                    'Sunday' => 'Sunday'
+                ]
+            ]);
+            echo $this->Form->control('time');
+            echo $this->Form->control('place');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -17,8 +17,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Group patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Group[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Group findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class GroupsTable extends Table
 {
@@ -36,8 +34,6 @@ class GroupsTable extends Table
         $this->setTable('groups');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
-        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -56,20 +52,46 @@ class GroupsTable extends Table
             ->scalar('name')
             ->maxLength('name', 20)
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name')
+            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-            ->scalar('meeting_day')
-            ->maxLength('meeting_day', 255)
-            ->requirePresence('meeting_day', 'create')
-            ->notEmpty('meeting_day');
+            ->scalar('description')
+            ->maxLength('description', 255)
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         $validator
-            ->scalar('meeting_place')
-            ->maxLength('meeting_place', 255)
-            ->requirePresence('meeting_place', 'create')
-            ->notEmpty('meeting_place');
+            ->scalar('day')
+            ->maxLength('day', 255)
+            ->requirePresence('day', 'create')
+            ->notEmpty('day');
+
+        $validator
+            ->time('time')
+            ->requirePresence('time', 'create')
+            ->notEmpty('time');
+
+        $validator
+            ->scalar('place')
+            ->maxLength('place', 255)
+            ->requirePresence('place', 'create')
+            ->notEmpty('place');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['name']));
+
+        return $rules;
     }
 }

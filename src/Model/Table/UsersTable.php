@@ -65,7 +65,8 @@ class UsersTable extends Table
             ->notEmpty('last_name');
 
         $validator
-            ->integer('phone_number')
+            ->scalar('phone_number')
+            ->maxLength('phone_number', 11)
             ->requirePresence('phone_number', 'create')
             ->notEmpty('phone_number');
 
@@ -80,6 +81,11 @@ class UsersTable extends Table
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+
+        $validator
+            ->integer('user_type')
+            ->requirePresence('user_type', 'create')
+            ->notEmpty('user_type');
 
         return $validator;
     }

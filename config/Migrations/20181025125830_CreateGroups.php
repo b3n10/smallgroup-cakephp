@@ -18,23 +18,30 @@ class CreateGroups extends AbstractMigration
             'limit' => 20,
             'null' => false,
         ]);
-        $table->addColumn('meeting_day', 'string', [
+        $table->addColumn('description', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('meeting_place', 'string', [
+        $table->addColumn('day', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('created', 'datetime', [
+        $table->addColumn('time', 'time', [
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('modified', 'datetime', [
+        $table->addColumn('place', 'string', [
             'default' => null,
+            'limit' => 255,
             'null' => false,
+        ]);
+        $table->addIndex([
+            'name',
+        ], [
+            'name' => 'UNIQUE_NAME',
+            'unique' => true,
         ]);
         $table->create();
     }

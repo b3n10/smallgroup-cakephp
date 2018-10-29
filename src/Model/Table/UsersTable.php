@@ -1,9 +1,11 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Http\Session;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 /**
@@ -88,5 +90,21 @@ class UsersTable extends Table
             ->notEmpty('user_type');
 
         return $validator;
+    }
+
+    /**
+     * Get user from session
+     *
+     * @return array
+     */
+    public function getUser()
+    {
+        $id = (new Session())->read('Auth.User.id');
+        $user = TableRegistry::getTableLocator()
+        ->get('Users')
+        ->findById($id)
+        ->first();
+
+        return $user;
     }
 }

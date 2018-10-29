@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\BaseController;
+use App\Model\Table\UsersTable as Users;
 
 /**
  * Groups Controller
@@ -44,6 +45,10 @@ class GroupsController extends BaseController
      */
     public function view($id = null)
     {
+        if ($id === null) {
+            return $this->redirect('/');
+        }
+
         $group = $this->Groups->get($id, [
             'contain' => []
         ]);
@@ -115,5 +120,17 @@ class GroupsController extends BaseController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Join a group
+     *
+     * @param int $id id of group
+     * @return void
+     */
+    public function join($id = null)
+    {
+        $user = Users::getUser();
+        $this->set(compact('user'));
     }
 }

@@ -86,3 +86,5 @@ $ phpcs --config-set default_standard CakePHP
     - homepage
     - group index
     - own & other profile
+
++ Ability to join a group

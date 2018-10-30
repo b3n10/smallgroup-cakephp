@@ -55,24 +55,25 @@ $ phpcs --config-set default_standard CakePHP
 
 ~~+ Accessible Homepage without login~~
 
-~~+ Create UsersTable:~~
+~~+ Create UsersTable:
     - first_name
     - last_name
     - phone_number[11] **unique**
     - email_address **unique**
     - password
-    - user_type(0 - normal [default], 1 - admin, 2 - mod)
+    - user_type(0 - normal [default], 1 - admin, 2 - mod)~~
 
-~~+ Create GroupsTable:~~
+~~+ Create GroupsTable:
     - name[20] **unique**
     - description
     - day
     - time
-    - place
+    - place~~
 
-+ Create GroupList Table:
+~~+ Create GroupList Table:
     - group_id
     - user_id
+    - approved(false [default])~~
 
 + Add user to a group and show number of group members
 

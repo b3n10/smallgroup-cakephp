@@ -93,16 +93,16 @@ class UsersTable extends Table
     }
 
     /**
-     * Get user from session
+     * Get user
      *
+     * @param int $id id of user
      * @return array
      */
-    public function getUser()
+    public function getUser($id = null)
     {
-        $id = (new Session())->read('Auth.User.id');
-        $user = TableRegistry::getTableLocator()
-        ->get('Users')
-        ->findById($id)
+        // $user = TableRegistry::getTableLocator()
+        // ->get('Users')
+        $this->findById($id)
         ->first();
 
         return $user;

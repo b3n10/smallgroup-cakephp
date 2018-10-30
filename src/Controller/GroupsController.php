@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\BaseController;
 use App\Model\Table\UsersTable as Users;
+use Cake\ORM\TableRegistry;
 
 /**
  * Groups Controller
@@ -53,7 +54,13 @@ class GroupsController extends BaseController
             'contain' => []
         ]);
 
-        $this->set('group', $group);
+        $user_id = $this->request->getSession()->read('Auth.User.id');
+        $group_of_user = TableRegistry::get('GroupLists')->find()->where([
+            'group_id' => $id,
+            'user_id' => $user_id
+        ]);
+
+        $this->set(compact('group', 'group_of_user'));
     }
 
     /**
@@ -125,12 +132,28 @@ class GroupsController extends BaseController
     /**
      * Join a group
      *
-     * @param int $id id of group
-     * @return void
+     * @param string|null $id Group id.
+     * @return \Cake\Http\Response|null Redirects on successful add
      */
     public function join($id = null)
     {
-        $user = Users::getUser();
-        $this->set(compact('user'));
+        $user_id = $this->request->getSession()->read('Auth.User.id');
+
+        $data = [
+            'group_id' => $id,
+            'user_id' => $user_id,
+        ];
+
+        if ($this->request->is('post')) {
+            $group_lists = TableRegistry::get('GroupLists');
+            $group_list = $group_lists->newEntity($data);
+
+            if ($group_lists->save($group_list)) {
+                $this->Flash->success(__('The group list has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The group list could not be saved. Please, try again.'));
+        }
     }
 }

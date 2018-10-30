@@ -53,9 +53,9 @@ $ phpcs --config-set default_standard CakePHP
     - testimonials from current members
     - login form
 
-~~ + Accessible Homepage without login ~~
+~~+ Accessible Homepage without login~~
 
-~~ + Create UsersTable: ~~
+~~+ Create UsersTable:~~
     - first_name
     - last_name
     - phone_number[11] **unique**
@@ -63,7 +63,7 @@ $ phpcs --config-set default_standard CakePHP
     - password
     - user_type(0 - normal [default], 1 - admin, 2 - mod)
 
-~~ + Create GroupsTable: ~~
+~~+ Create GroupsTable:~~
     - name[20] **unique**
     - description
     - day
@@ -78,7 +78,7 @@ $ phpcs --config-set default_standard CakePHP
 
 + Disable access to actions via URLs
 
-+ Make email & phone unique
+~~+ Make email & phone unique~~
 
 + Fix Profile page
 
@@ -88,3 +88,7 @@ $ phpcs --config-set default_standard CakePHP
     - own & other profile
 
 + Ability to join a group
+
++ Show count of members in group index
+
++ Create methods in GroupListsTable for getting members count, checking if user joined a group and if user has been approved

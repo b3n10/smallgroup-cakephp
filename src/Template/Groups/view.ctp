@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Group $group
  */
+
 $this->assign('page_title', h($group->name));
 ?>
 
@@ -10,9 +11,16 @@ $this->assign('page_title', h($group->name));
     <h3><?= h($group->name) ?></h3>
 
     <?php
-    echo $this->Form->create($group, ['url' => ['action' => 'join']]);
-    echo $this->Form->button('Join Group', ['class' => 'btn btn-primary']);
-    echo $this->Form->end();
+    if (!$group_of_user->count()) {
+        echo $this->Form->create($group, [
+            'type' => 'post',
+            'url' => ['action' => 'join']
+        ]);
+        echo $this->Form->button('Join Group', ['class' => 'btn btn-primary']);
+        echo $this->Form->end();
+    } else  {
+        echo '<p>You are part of this group.</p>';
+    }
     ?>
 
     <table class="vertical-table">

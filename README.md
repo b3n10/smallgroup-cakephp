@@ -46,7 +46,7 @@ $ phpcs --config-set installed_paths /path/to/your/app/vendor/cakephp/cakephp-co
 $ phpcs --config-set default_standard CakePHP
 ```
 
-## TODO
+## TODOs
 
 + Homepage with:
     - gallery of smallgroup pictures
@@ -93,3 +93,5 @@ $ phpcs --config-set default_standard CakePHP
 + Show count of members in group index
 
 + Create methods in GroupListsTable for getting members count, checking if user joined a group and if user has been approved
+
++ Search for friends or groups

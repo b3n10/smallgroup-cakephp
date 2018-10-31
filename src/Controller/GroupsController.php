@@ -55,12 +55,11 @@ class GroupsController extends BaseController
         ]);
 
         $user_id = $this->request->getSession()->read('Auth.User.id');
-        $group_of_user = TableRegistry::get('GroupLists')->find()->where([
-            'group_id' => $id,
-            'user_id' => $user_id
-        ]);
 
-        $this->set(compact('group', 'group_of_user'));
+        $has_joined = TableRegistry::get('GroupLists')->hasJoined($id, $user_id);
+        $is_approved = TableRegistry::get('GroupLists')->isApproved($id, $user_id, true);
+
+        $this->set(compact('group', 'has_joined', 'is_approved'));
     }
 
     /**

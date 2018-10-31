@@ -3,8 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Group[]|\Cake\Collection\CollectionInterface $groups
  */
-$this->assign('page_title', 'All Groups');
+use Cake\ORM\TableRegistry;
 
+$this->assign('page_title', 'All Groups');
 $this->start('pagecss');
 echo $this->Html->css('group-index.css');
 ?>
@@ -47,7 +48,8 @@ $this->end();
                         </li>
                         <li class="list-group-item py-1 mb-0 border-0">
                             <i class="fas fa-users w-25 text-center"></i>
-                            <span class="d-inline-block text-justify w-span"><?= h('X members') ?></span>
+                            <?php $member_count = TableRegistry::get('GroupLists')->membersCount($group->id, true) ?>
+                            <span class="d-inline-block text-justify w-span"><?= h($member_count . ' ' . ngettext('members', 'member', $member_count)) ?></span>
                         </li>
                     </ul>
 

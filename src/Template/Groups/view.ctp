@@ -11,13 +11,22 @@ $this->assign('page_title', h($group->name));
     <h3><?= h($group->name) ?></h3>
 
     <?php
-    if (!$group_of_user->count()) {
+    if (!$has_joined) {
         echo $this->Form->create($group, [
             'type' => 'post',
             'url' => ['action' => 'join']
         ]);
         echo $this->Form->button('Join Group', ['class' => 'btn btn-primary']);
         echo $this->Form->end();
+    } else if (!$is_approved) {
+        echo '<p>Waiting for approval to join this group.';
+        echo $this->Form->create($group, [
+            'type' => 'post',
+            'url' => ['action' => 'cancel']
+        ]);
+        echo $this->Form->button('Cancel Request', ['class' => 'btn btn-danger']);
+        echo $this->Form->end();
+        echo '</p>';
     } else  {
         echo '<p>You are part of this group.</p>';
     }

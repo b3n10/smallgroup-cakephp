@@ -85,4 +85,45 @@ class GroupListsTable extends Table
 
         return $rules;
     }
+
+    /**
+     * Check if user is approved on group
+     *
+     * @param int $group_id id of group
+     * @param int $user_id id of user
+     * @param bool $approved if use is approved
+     * @return bool
+     */
+    public function isApproved($group_id = null, $user_id = null, $approved = false)
+    {
+        return $this->find()->where([
+            'group_id' => $group_id,
+            'user_id' => $user_id,
+            'approved' => $approved
+        ])->count();
+    }
+
+    /**
+     * If user joined group
+     *
+     * @param int $group_id id of group
+     * @param int $user_id id of user
+     * @return int
+     */
+    public function hasJoined($group_id, $user_id)
+    {
+        return $this->isApproved($group_id, $user_id);
+    }
+
+    /**
+     * Members count
+     *
+     * @param int $group_id id of group
+     * @param bool $approved if use is approved
+     * @return int
+     */
+    public function membersCount($group_id, $approved)
+    {
+        return $this->isApproved($group_id, null, $approved);
+    }
 }
